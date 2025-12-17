@@ -45,9 +45,6 @@ const navLinks = [
         <div
           class="flex-shrink-0 flex items-center gap-2 cursor-pointer"
           @click="scrollToTop"
-          window.scrollTo(0,
-          0)
-          }
         >
           <div
             class="relative w-12 h-12 overflow-hidden rounded-lg bg-white/10 flex items-center justify-center"
