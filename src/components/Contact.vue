@@ -58,8 +58,7 @@ const availableHours = computed(() => {
   return baseHours.filter(
     (hour) =>
       !bookedSlots.some(
-        (slot) =>
-          slot.date === formData.meetingDate && slot.time === hour
+        (slot) => slot.date === formData.meetingDate && slot.time === hour
       )
   );
 });
@@ -103,7 +102,7 @@ function suggestNextAvailableDate(): string {
 
     const day = date.getDay();
     if (day !== 0) {
-      const formatted = date.toISOString().split("T")[0];
+      const formatted: string = date.toISOString().split("T")[0]!;
 
       const hasFreeHours = baseHours.some(
         (hour) =>
@@ -150,14 +149,10 @@ const validateForm = () => {
     ? "Email inválido."
     : "";
   errors.phone =
-    formData.phone.replace(/\D/g, "").length < 11
-      ? "Telefone inválido."
-      : "";
+    formData.phone.replace(/\D/g, "").length < 11 ? "Telefone inválido." : "";
   errors.subject = formData.subject.length < 3 ? "Descreva o assunto." : "";
   errors.message =
-    formData.message.length < 10
-      ? "Explique melhor sua necessidade."
-      : "";
+    formData.message.length < 10 ? "Explique melhor sua necessidade." : "";
 
   return !Object.values(errors).some((e) => e);
 };
