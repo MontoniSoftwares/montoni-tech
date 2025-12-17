@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  /* ============================
+     FADE + SLIDE UP
+  ============================ */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ============================
+     FADE + SLIDE LEFT
+  ============================ */
+  .fade-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: fadeLeft 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeLeft {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* ============================
+     FADE + SLIDE RIGHT
+  ============================ */
+  .fade-right {
+    opacity: 0;
+    transform: translateX(30px);
+    animation: fadeRight 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeRight {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* ============================
+     STAGGER (CASCATA)
+  ============================ */
+  .stagger {
+    opacity: 0;
+    transform: scale(0.95);
+    animation: staggerAnim 0.6s ease-out forwards;
+  }
+
+  @keyframes staggerAnim {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* ============================
+     GLOW PULSANTE
+  ============================ */
+  .pulse-glow {
+    animation: pulseGlow 2.5s ease-in-out infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%,
+    100% {
+      box-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
+    }
+    50% {
+      box-shadow: 0 0 22px rgba(168, 85, 247, 1);
+    }
+  }
+
+  /* ============================
+     PARALLAX SUAVE
+  ============================ */
+  .parallax {
+    transform: translateY(var(--parallax-offset, 0px));
+    transition: transform 0.2s ease-out;
+  }
+
+  /* ============================
+     ATMOSFERA ANIMADA
+  ============================ */
+  .atmosphere {
+    animation: atmosphereMove 18s ease-in-out infinite alternate;
+  }
+
+  @keyframes atmosphereMove {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    100% {
+      transform: translate(40px, -40px) scale(1.1);
+    }
+  }
+
+  /* ============================
+     PULSE LENTO (FUNDO)
+  ============================ */
+  .animate-pulse-slow {
+    animation: pulseSlow 6s ease-in-out infinite;
+  }
+
+  @keyframes pulseSlow {
+    0%,
+    100% {
+      opacity: 0.4;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(1.05);
+    }
+  }
+
+  /* ============================
+     PULSE EXTRA LENTO
+  ============================ */
+  .animate-pulse-slower {
+    animation: pulseSlower 10s ease-in-out infinite;
+  }
+
+  @keyframes pulseSlower {
+    0%,
+    100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.6;
+      transform: scale(1.08);
+    }
+  }
+
+  /* ============================
+     MODAL FADE
+  ============================ */
+  .modal-fade {
+    animation: modalFade 0.35s ease-out forwards;
+  }
+
+  @keyframes modalFade {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+}
