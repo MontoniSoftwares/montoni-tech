@@ -164,6 +164,7 @@
     }
   }
 }
+
 /* ============================================================
    CORREÇÕES PARA MOBILE (TELAS ATÉ 768px)
    ============================================================ */
@@ -178,13 +179,13 @@
     transform: none !important;
   }
 
-  /* Parallax desativado no mobile (evita conteúdo escondido) */
+  /* Parallax desativado no mobile */
   .parallax {
     transform: none !important;
     transition: none !important;
   }
 
-  /* Atmosfera e efeitos de escala desativados (evita sobreposição) */
+  /* Atmosfera e efeitos de escala desativados */
   .atmosphere,
   .animate-pulse-slow,
   .animate-pulse-slower {
@@ -193,7 +194,7 @@
     opacity: 1 !important;
   }
 
-  /* Evita que elementos animados criem espaços extras */
+  /* Evita que animações criem comportamento estranho */
   [class*="fade"],
   [class*="stagger"],
   [class*="pulse"],
@@ -206,18 +207,10 @@
   .grid {
     flex-wrap: wrap !important;
   }
+}
 
-  /* Evita overflow escondendo conteúdo (como o ano 2026) */
-  * {
-    overflow: visible !important;
-  }
-
-  /* Ajuste geral de espaçamento para telas pequenas */
-  section,
-  div,
-  .container,
-  .wrapper {
-    padding-left: clamp(1rem, 4vw, 2rem) !important;
-    padding-right: clamp(1rem, 4vw, 2rem) !important;
-  }
+/* ✅ Correção global segura */
+html,
+body {
+  overflow-x: hidden;
 }
