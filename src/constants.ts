@@ -33,12 +33,18 @@ export const IMAGES = {
   PLACEHOLDER_HERO: placeholderHero,
 };
 
-// ✅ Serviços
 import {
+  BarChart3,
+  Blocks,
+  Brain,
+  BugPlay,
   Code,
+  Cpu,
   Database,
+  Gamepad2,
   Globe,
   Layers,
+  Rocket,
   Server,
   Smartphone,
 } from "lucide-vue-next";
@@ -77,6 +83,51 @@ export const SERVICES = [
     title: "Banco de Dados",
     description: "Modelagem, otimização e manutenção de bancos SQL e NoSQL.",
     icon: Database,
+  },
+
+  // ✅ NOVOS SERVIÇOS
+
+  {
+    title: "Blockchain & Web3",
+    description:
+      "Desenvolvimento de contratos inteligentes, integrações Web3 e soluções descentralizadas.",
+    icon: Blocks,
+  },
+  {
+    title: "Automação de Investimentos",
+    description:
+      "Robôs de trading, algoritmos financeiros e integrações com MetaTrader e TradingView.",
+    icon: BarChart3,
+  },
+  {
+    title: "IA & Machine Learning",
+    description:
+      "Modelos inteligentes, automações com IA e soluções baseadas em dados.",
+    icon: Brain,
+  },
+  {
+    title: "Marketing Digital & Growth",
+    description:
+      "SEO, campanhas, copywriting e estratégias para aumentar tráfego e conversão.",
+    icon: Rocket,
+  },
+  {
+    title: "Game Development",
+    description:
+      "Criação de jogos, protótipos, assets e experiências interativas.",
+    icon: Gamepad2,
+  },
+  {
+    title: "Testes Automatizados",
+    description:
+      "Garantia de qualidade com testes automatizados e pipelines de validação.",
+    icon: BugPlay,
+  },
+  {
+    title: "Consultoria & Arquitetura",
+    description:
+      "Planejamento técnico, arquitetura de sistemas e orientação estratégica.",
+    icon: Cpu,
   },
 ];
 

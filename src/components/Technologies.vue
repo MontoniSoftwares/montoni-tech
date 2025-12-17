@@ -35,15 +35,15 @@ const hasCategories = computed(
 <template>
   <section
     id="tech"
-    class="relative py-20 bg-slate-950 border-y border-purple-900/20 overflow-hidden"
+    class="relative py-16 sm:py-20 bg-slate-950 border-y border-purple-900/20 overflow-hidden"
   >
     <!-- Glow de fundo -->
-    <div class="pointer-events-none absolute inset-0 opacity-60">
+    <div class="pointer-events-none absolute inset-0 opacity-40 sm:opacity-60">
       <div
-        class="absolute -top-40 -right-32 h-72 w-72 rounded-full bg-purple-700/30 blur-3xl"
+        class="absolute -top-40 -right-32 h-56 w-56 sm:h-72 sm:w-72 rounded-full bg-purple-700/30 blur-3xl"
       />
       <div
-        class="absolute -bottom-40 -left-32 h-72 w-72 rounded-full bg-blue-700/20 blur-3xl"
+        class="absolute -bottom-40 -left-32 h-56 w-56 sm:h-72 sm:w-72 rounded-full bg-blue-700/20 blur-3xl"
       />
     </div>
 
@@ -61,41 +61,41 @@ const hasCategories = computed(
           Tecnologias que impulsionam seus projetos
         </h2>
 
-        <p class="text-gray-400 max-w-2xl mx-auto">
+        <p class="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">
           Utilizamos uma combinação estratégica de ferramentas modernas para
           entregar soluções com alta performance, segurança e escalabilidade —
           sempre alinhadas ao momento da sua empresa.
         </p>
       </div>
 
-      <!-- Grid de categorias -->
+      <!-- Grid -->
       <div
         v-if="hasCategories"
-        class="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+        class="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3"
       >
         <article
           v-for="(group, index) in TECHNOLOGIES"
           :key="group.category"
-          class="relative group rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur-sm p-5 sm:p-6 flex flex-col gap-4 shadow-[0_18px_45px_rgba(15,23,42,0.55)] hover:border-purple-500/70 hover:bg-slate-900/90 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_25px_60px_rgba(88,28,135,0.55)]"
+          class="relative group rounded-2xl border border-slate-800 bg-slate-900/70 backdrop-blur-sm p-5 sm:p-6 flex flex-col gap-4 shadow-lg hover:border-purple-500/70 hover:bg-slate-900/90 transition-all duration-300 hover:-translate-y-1 hover:shadow-purple-900/30"
           :style="{ transitionDelay: `${index * 60}ms` }"
         >
-          <!-- Glow lateral -->
+          <!-- Glow lateral (reduzido no mobile) -->
           <div
-            class="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            class="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden sm:block"
           >
             <div
               class="absolute -inset-px rounded-2xl bg-gradient-to-br from-purple-500/20 via-transparent to-blue-500/10"
             />
           </div>
 
-          <!-- Cabeçalho da categoria -->
+          <!-- Cabeçalho -->
           <header class="flex items-center gap-3 z-10">
             <div
-              class="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-900/40 border border-purple-500/50 text-purple-200 shadow-[0_0_25px_rgba(168,85,247,0.6)] group-hover:scale-105 group-hover:shadow-[0_0_35px_rgba(168,85,247,0.9)] transition-shadow duration-300"
+              class="flex h-12 w-12 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-purple-900/40 border border-purple-500/50 text-purple-200 shadow-md group-hover:scale-105 transition-all"
             >
               <component
                 :is="categoryIcons[group.category] || Code2"
-                class="w-5 h-5"
+                class="w-6 h-6 sm:w-5 sm:h-5"
               />
             </div>
 
@@ -109,19 +109,15 @@ const hasCategories = computed(
             </div>
           </header>
 
-          <!-- Microcards das tecnologias -->
+          <!-- Microcards -->
           <div class="flex flex-wrap gap-2 mt-2 z-10">
             <div
               v-for="tech in group.items"
               :key="tech.name"
-              class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/70 border border-slate-700/80 text-gray-200 text-xs shadow-sm cursor-default select-none group-hover:border-purple-500/70 group-hover:bg-purple-900/30 transition-colors duration-300"
+              class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-700 text-gray-200 text-xs shadow-sm cursor-default select-none group-hover:border-purple-500/70 group-hover:bg-purple-900/30 transition-colors"
             >
-              <span
-                class="h-1.5 w-1.5 rounded-full bg-purple-400 shadow-[0_0_8px_rgba(192,132,252,0.9)]"
-              />
-              <span class="font-medium">
-                {{ tech.name }}
-              </span>
+              <span class="h-1.5 w-1.5 rounded-full bg-purple-400" />
+              <span class="font-medium">{{ tech.name }}</span>
               <span
                 class="text-[10px] uppercase tracking-wide text-purple-300/80"
               >
@@ -132,18 +128,20 @@ const hasCategories = computed(
         </article>
       </div>
 
-      <!-- Fallback (se TECHNOLOGIES estiver vazio) -->
+      <!-- Fallback -->
       <div v-else class="text-center text-gray-500 text-sm mt-8">
-        Stack tecnológica em atualização. Em breve mais detalhes sobre as
-        ferramentas que usamos nos seus projetos.
+        Stack tecnológica em atualização. Em breve mais detalhes.
       </div>
 
       <!-- Frase final -->
-      <div class="mt-4 text-center">
+      <div class="mt-6 text-center">
         <p class="text-sm text-gray-400 max-w-xl mx-auto">
-          Especialistas em ecossistemas e conectando fronteiras entre frontend,
-          backend, infraestrutura e banco de dados para entregar soluções
-          completas — do conceito ao deploy em produção.
+          Especialistas em soluções digitais de ponta a ponta: desenhamos
+          interfaces modernas, construímos backends sólidos, modelamos dados com
+          segurança e configuramos todo o pipeline de deploy até a produção.
+          Mais do que escrever código, entregamos um ecossistema completo,
+          pronto para escalar, com monitoramento, boas práticas e foco total em
+          resultado para o seu negócio.
         </p>
       </div>
     </div>

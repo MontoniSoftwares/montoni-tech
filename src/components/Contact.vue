@@ -207,51 +207,55 @@ ${formData.message}
 </script>
 
 <template>
-  <section id="contact" class="py-24 bg-slate-950 relative overflow-hidden">
-    <!-- Fundo atmosférico cinematográfico -->
+  <section
+    id="contact"
+    class="py-16 sm:py-20 bg-slate-950 relative overflow-hidden"
+  >
+    <!-- Fundo atmosférico -->
     <div class="pointer-events-none absolute inset-0 opacity-10">
       <div
-        class="absolute -top-40 -left-20 h-96 w-96 bg-purple-700/40 blur-3xl rounded-full animate-pulse-slow"
+        class="absolute -top-40 -left-20 h-72 w-72 sm:h-96 sm:w-96 bg-purple-700/40 blur-3xl rounded-full"
       ></div>
       <div
-        class="absolute -bottom-40 -right-20 h-96 w-96 bg-indigo-700/40 blur-3xl rounded-full animate-pulse-slower"
+        class="absolute -bottom-40 -right-20 h-72 w-72 sm:h-96 sm:w-96 bg-indigo-700/40 blur-3xl rounded-full"
       ></div>
     </div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
       <!-- Título -->
-      <div class="text-center mb-16 fade-up">
+      <div class="text-center mb-12 sm:mb-16 fade-up">
         <h2
-          class="text-base text-purple-400 font-semibold tracking-wide uppercase"
+          class="text-sm sm:text-base text-purple-400 font-semibold tracking-wide uppercase"
         >
           Contato & Agendamento
         </h2>
-        <p class="mt-2 text-4xl font-extrabold tracking-tight text-white">
+
+        <p
+          class="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-white"
+        >
           Vamos construir o futuro juntos?
         </p>
-        <p class="mt-4 max-w-2xl text-xl text-gray-400 mx-auto">
+
+        <p class="mt-4 max-w-2xl text-base sm:text-xl text-gray-400 mx-auto">
           Agende uma reunião online ou presencial, ou envie uma mensagem direta.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12">
         <!-- FORMULÁRIO -->
         <div
-          class="bg-slate-900/90 rounded-2xl shadow-2xl border border-slate-800 p-8 fade-left backdrop-blur-md"
+          class="bg-slate-900/90 rounded-2xl shadow-xl border border-slate-800 p-6 sm:p-8 fade-left backdrop-blur-md"
         >
-          <h3 class="text-xl font-bold text-white mb-6 flex items-center">
+          <h3
+            class="text-lg sm:text-xl font-bold text-white mb-6 flex items-center"
+          >
             <Calendar class="mr-2 text-purple-500" />
             Solicitar Agendamento / Contato
           </h3>
 
-          <!-- ALERTAS -->
-          <div v-if="errors.global" class="text-sm text-red-400 mb-2">
-            {{ errors.global }}
-          </div>
-
           <form @submit.prevent="openModal" class="space-y-6">
             <!-- Nome + Telefone -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <!-- Nome -->
               <div>
                 <label class="block text-sm font-medium text-gray-400"
@@ -261,7 +265,7 @@ ${formData.message}
                   v-model="formData.name"
                   type="text"
                   :class="[
-                    'mt-1 block w-full bg-slate-800 border rounded-md py-2 px-3 text-white focus:ring-2 focus:ring-purple-500 transition',
+                    'mt-1 block w-full bg-slate-800 border rounded-md py-2.5 px-3 text-white focus:ring-2 focus:ring-purple-500 transition text-sm',
                     errors.name ? 'border-red-500' : 'border-slate-700',
                   ]"
                   placeholder="Seu nome completo"
@@ -281,7 +285,7 @@ ${formData.message}
                   @input="handlePhoneInput"
                   type="tel"
                   :class="[
-                    'mt-1 block w-full bg-slate-800 border rounded-md py-2 px-3 text-white focus:ring-2 focus:ring-purple-500 transition',
+                    'mt-1 block w-full bg-slate-800 border rounded-md py-2.5 px-3 text-white focus:ring-2 focus:ring-purple-500 transition text-sm',
                     errors.phone ? 'border-red-500' : 'border-slate-700',
                   ]"
                   placeholder="(22) 9 9999-9999"
@@ -301,7 +305,7 @@ ${formData.message}
                 v-model="formData.email"
                 type="email"
                 :class="[
-                  'mt-1 block w-full bg-slate-800 border rounded-md py-2 px-3 text-white focus:ring-2 focus:ring-purple-500 transition',
+                  'mt-1 block w-full bg-slate-800 border rounded-md py-2.5 px-3 text-white focus:ring-2 focus:ring-purple-500 transition text-sm',
                   errors.email ? 'border-red-500' : 'border-slate-700',
                 ]"
                 placeholder="seuemail@empresa.com"
@@ -320,7 +324,7 @@ ${formData.message}
                 v-model="formData.subject"
                 type="text"
                 :class="[
-                  'mt-1 block w-full bg-slate-800 border rounded-md py-2 px-3 text-white focus:ring-2 focus:ring-purple-500 transition',
+                  'mt-1 block w-full bg-slate-800 border rounded-md py-2.5 px-3 text-white focus:ring-2 focus:ring-purple-500 transition text-sm',
                   errors.subject ? 'border-red-500' : 'border-slate-700',
                 ]"
                 placeholder="Ex: Desenvolvimento de sistema, site, app..."
@@ -332,14 +336,16 @@ ${formData.message}
 
             <!-- Tipo de reunião + Data -->
             <div
-              class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-800/50 p-4 rounded-lg border border-purple-500/20"
+              class="grid grid-cols-1 sm:grid-cols-2 gap-6 bg-slate-800/50 p-4 rounded-lg border border-purple-500/20"
             >
               <!-- Tipo -->
               <div>
-                <label class="block text-sm font-medium text-gray-400 mb-2">
-                  Tipo de Reunião
-                </label>
-                <div class="flex space-x-4">
+                <label class="block text-sm font-medium text-gray-400 mb-2"
+                  >Tipo de Reunião</label
+                >
+                <div
+                  class="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0"
+                >
                   <label class="flex items-center cursor-pointer">
                     <input
                       type="radio"
@@ -368,27 +374,25 @@ ${formData.message}
 
               <!-- Data -->
               <div>
-                <label class="block text-sm font-medium text-gray-400 mb-1">
-                  Data Preferida
-                </label>
-
+                <label class="block text-sm font-medium text-gray-400 mb-1"
+                  >Data Preferida</label
+                >
                 <input
                   type="date"
                   v-model="formData.meetingDate!"
                   @change="validateDate"
-                  class="block w-full bg-slate-800 border border-slate-700 rounded-md py-1.5 px-3 text-white focus:ring-2 focus:ring-purple-500 transition text-sm"
+                  class="block w-full bg-slate-800 border border-slate-700 rounded-md py-2 px-3 text-white focus:ring-2 focus:ring-purple-500 transition text-sm"
                 />
               </div>
 
               <!-- Horário -->
               <div>
-                <label class="block text-sm font-medium text-gray-400 mb-1">
-                  Horário Preferido
-                </label>
-
+                <label class="block text-sm font-medium text-gray-400 mb-1"
+                  >Horário Preferido</label
+                >
                 <select
                   v-model="formData.meetingTime"
-                  class="block w-full bg-slate-800 border border-slate-700 rounded-md py-1.5 px-3 text-white focus:ring-2 focus:ring-purple-500 transition text-sm"
+                  class="block w-full bg-slate-800 border border-slate-700 rounded-md py-2 px-3 text-white focus:ring-2 focus:ring-purple-500 transition text-sm"
                 >
                   <option disabled value="">Selecione um horário</option>
                   <option
@@ -411,7 +415,7 @@ ${formData.message}
                 v-model="formData.message"
                 rows="4"
                 :class="[
-                  'mt-1 block w-full bg-slate-800 border rounded-md py-2 px-3 text-white focus:ring-2 focus:ring-purple-500 transition',
+                  'mt-1 block w-full bg-slate-800 border rounded-md py-2.5 px-3 text-white focus:ring-2 focus:ring-purple-500 transition text-sm',
                   errors.message ? 'border-red-500' : 'border-slate-700',
                 ]"
                 placeholder="Conte um pouco sobre sua ideia, objetivos e prazos..."
@@ -440,10 +444,12 @@ ${formData.message}
         </div>
 
         <!-- PAINEL LATERAL -->
-        <div class="flex flex-col justify-center space-y-8 fade-right">
+        <div
+          class="flex flex-col justify-center space-y-6 sm:space-y-8 fade-right"
+        >
           <!-- Email -->
           <div
-            class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex items-start space-x-4"
+            class="bg-slate-800 p-5 sm:p-6 rounded-xl border border-slate-700 flex items-start space-x-4"
           >
             <div class="flex-shrink-0 bg-purple-900/50 p-3 rounded-lg">
               <Mail class="w-6 h-6 text-purple-400" />
@@ -461,7 +467,7 @@ ${formData.message}
 
           <!-- WhatsApp -->
           <div
-            class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex items-start space-x-4"
+            class="bg-slate-800 p-5 sm:p-6 rounded-xl border border-slate-700 flex items-start space-x-4"
           >
             <div class="flex-shrink-0 bg-green-900/50 p-3 rounded-lg">
               <Phone class="w-6 h-6 text-green-400" />
@@ -493,7 +499,7 @@ ${formData.message}
 
           <!-- Localização -->
           <div
-            class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex items-start space-x-4"
+            class="bg-slate-800 p-5 sm:p-6 rounded-xl border border-slate-700 flex items-start space-x-4"
           >
             <div class="flex-shrink-0 bg-blue-900/50 p-3 rounded-lg">
               <MapPin class="w-6 h-6 text-blue-400" />
@@ -508,17 +514,19 @@ ${formData.message}
       </div>
     </div>
 
-    <!-- ✅ MODAL DE CONFIRMAÇÃO -->
+    <!-- MODAL -->
     <div
       v-if="showModal"
       class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 fade-up"
     >
       <div
-        class="bg-slate-900 border border-slate-700 rounded-xl p-8 max-w-md w-full shadow-2xl"
+        class="bg-slate-900 border border-slate-700 rounded-xl p-6 sm:p-8 max-w-md w-full shadow-2xl"
       >
-        <h3 class="text-xl font-bold text-white mb-4">Confirmar envio</h3>
+        <h3 class="text-lg sm:text-xl font-bold text-white mb-4">
+          Confirmar envio
+        </h3>
 
-        <p class="text-gray-300 mb-6">
+        <p class="text-gray-300 mb-6 text-sm sm:text-base">
           Confira os dados antes de enviar para o WhatsApp:
         </p>
 

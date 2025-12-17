@@ -17,33 +17,34 @@ function handleImageError(e: Event) {
 <template>
   <footer class="bg-slate-950 border-t border-purple-900/30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div class="flex flex-col items-center justify-between md:flex-row gap-6">
+      <div class="flex flex-col items-center justify-between md:flex-row gap-8">
         <!-- LOGO -->
-        <div class="flex items-center space-x-3">
-          <div class="w-10 h-10 overflow-hidden rounded bg-white/5 p-1">
+        <div class="flex items-center space-x-4">
+          <div class="overflow-hidden rounded bg-white/5 p-2">
             <img
               :src="IMAGES.LOGO_FOOTER"
               alt="Logo Footer"
-              class="w-full h-full object-contain"
+              class="mx-auto w-20 sm:w-24 md:w-28 h-auto object-contain"
               @error="handleImageError"
             />
           </div>
 
-          <span class="text-lg font-bold text-white tracking-wider">
+          <span
+            class="text-xl font-bold text-white tracking-wide text-center md:text-left"
+          >
             {{ COMPANY_NAME }}
           </span>
         </div>
 
         <!-- SOCIALS -->
-        <div class="flex space-x-6">
+        <div class="flex space-x-8">
           <a
             :href="LINKEDIN_URL"
             target="_blank"
             rel="noreferrer"
             class="text-gray-400 hover:text-purple-500 transition-colors"
           >
-            <span class="sr-only">LinkedIn</span>
-            <Linkedin class="h-6 w-6" />
+            <Linkedin class="h-7 w-7 sm:h-8 sm:w-8" />
           </a>
 
           <a
@@ -52,14 +53,13 @@ function handleImageError(e: Event) {
             rel="noreferrer"
             class="text-gray-400 hover:text-white transition-colors"
           >
-            <span class="sr-only">GitHub</span>
-            <Github class="h-6 w-6" />
+            <Github class="h-7 w-7 sm:h-8 sm:w-8" />
           </a>
         </div>
       </div>
 
       <!-- COPYRIGHT -->
-      <div class="mt-8 border-t border-slate-800 pt-8 text-center">
+      <div class="mt-10 border-t border-slate-800 pt-8 text-center">
         <p class="text-base text-gray-500">
           &copy; {{ displayYear }} Montoni Soluções Tech. Todos os direitos
           reservados.

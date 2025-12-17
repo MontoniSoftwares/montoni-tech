@@ -164,3 +164,60 @@
     }
   }
 }
+/* ============================================================
+   CORREÇÕES PARA MOBILE (TELAS ATÉ 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Desativa animações que empurram conteúdo */
+  .fade-up,
+  .fade-left,
+  .fade-right,
+  .stagger {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Parallax desativado no mobile (evita conteúdo escondido) */
+  .parallax {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Atmosfera e efeitos de escala desativados (evita sobreposição) */
+  .atmosphere,
+  .animate-pulse-slow,
+  .animate-pulse-slower {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Evita que elementos animados criem espaços extras */
+  [class*="fade"],
+  [class*="stagger"],
+  [class*="pulse"],
+  [class*="atmosphere"] {
+    will-change: auto !important;
+  }
+
+  /* Garante que grids e flexbox não quebrem */
+  .flex,
+  .grid {
+    flex-wrap: wrap !important;
+  }
+
+  /* Evita overflow escondendo conteúdo (como o ano 2026) */
+  * {
+    overflow: visible !important;
+  }
+
+  /* Ajuste geral de espaçamento para telas pequenas */
+  section,
+  div,
+  .container,
+  .wrapper {
+    padding-left: clamp(1rem, 4vw, 2rem) !important;
+    padding-right: clamp(1rem, 4vw, 2rem) !important;
+  }
+}

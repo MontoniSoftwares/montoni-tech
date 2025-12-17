@@ -3,23 +3,28 @@ import { ArrowRight, Calendar } from "lucide-vue-next";
 </script>
 
 <template>
-  <section id="home" class="relative bg-slate-900 overflow-hidden pt-20">
-    <!-- Background Blobs -->
+  <section
+    id="home"
+    class="relative bg-slate-900 overflow-hidden pt-16 sm:pt-20"
+  >
+    <!-- Background Blobs (DESATIVADOS NO MOBILE) -->
     <div
-      class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none"
+      class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none hidden sm:block"
     >
       <div
-        class="absolute -top-40 -right-40 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"
+        class="absolute -top-40 -right-40 w-56 h-56 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"
       ></div>
       <div
-        class="absolute top-40 -left-20 w-72 h-72 bg-indigo-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"
+        class="absolute top-40 -left-20 w-48 h-48 sm:w-64 sm:h-64 lg:w-72 lg:h-72 bg-indigo-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"
       ></div>
       <div
-        class="absolute -bottom-8 left-20 w-80 h-80 bg-fuchsia-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"
+        class="absolute -bottom-8 left-20 w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 bg-fuchsia-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"
       ></div>
     </div>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+    <div
+      class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-32"
+    >
       <div class="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
         <!-- LEFT TEXT -->
         <div
@@ -35,7 +40,7 @@ import { ArrowRight, Calendar } from "lucide-vue-next";
           </div>
 
           <h1
-            class="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl"
+            class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl tracking-tight font-extrabold text-white"
           >
             <span class="block xl:inline">Transforme suas ideias</span>
             <span
@@ -46,7 +51,7 @@ import { ArrowRight, Calendar } from "lucide-vue-next";
           </h1>
 
           <p
-            class="mt-3 text-base text-gray-400 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"
+            class="mt-4 text-base text-gray-400 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"
           >
             Desenvolvimento Fullstack de alta performance. Web Apps, Sistemas
             Corporativos e Aplicativos Mobile com as tecnologias mais modernas
@@ -59,7 +64,7 @@ import { ArrowRight, Calendar } from "lucide-vue-next";
           >
             <a
               href="#contact"
-              class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 md:py-4 md:text-lg shadow-lg shadow-purple-900/50 transition-all hover:scale-105"
+              class="inline-flex items-center justify-center px-6 py-3 text-sm sm:text-base border border-transparent font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 shadow-lg shadow-purple-900/50 transition-all hover:scale-105"
             >
               <Calendar class="w-5 h-5 mr-2" />
               Agendar Reunião
@@ -67,7 +72,7 @@ import { ArrowRight, Calendar } from "lucide-vue-next";
 
             <a
               href="#services"
-              class="inline-flex items-center justify-center px-8 py-3 border border-gray-600 text-base font-medium rounded-md text-gray-300 bg-transparent hover:bg-gray-800 md:py-4 md:text-lg transition-all"
+              class="inline-flex items-center justify-center px-6 py-3 text-sm sm:text-base border border-gray-600 font-medium rounded-md text-gray-300 bg-transparent hover:bg-gray-800 transition-all"
             >
               Nossos Serviços
               <ArrowRight class="w-5 h-5 ml-2" />
@@ -77,7 +82,7 @@ import { ArrowRight, Calendar } from "lucide-vue-next";
 
         <!-- RIGHT CODE BLOCK -->
         <div
-          class="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center"
+          class="mt-12 relative w-full max-w-sm mx-auto sm:max-w-lg lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center"
         >
           <div class="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
             <div
